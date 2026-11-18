@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MOVILTECH: reparación de celulares, computadores y portátiles, venta de celulares y accesorios en Itagüí.">
+  <title>MOVILTECH | Celulares y Tecnología en Itagüí</title>
+  <style>
+    :root {
+      --rojo: #e6243f;
+      --negro: #101116;
+      --fondo: #17191f;
+      --blanco: #ffffff;
+      --gris: #bfc2ca;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--negro);
+      color: var(--blanco);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .contenedor {
+      max-width: 1120px;
+      margin: auto;
+      padding: 0 22px;
+    }
+
+    header {
+      background: #0b0c10;
+      border-bottom: 2px solid var(--rojo);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navegacion {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+
+    .logo {
+      font-size: 27px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo span { color: var(--rojo); }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 17px;
+      font-size: 14px;
+    }
+
+    nav a:hover { color: var(--rojo); }
+
+    .hero {
+      padding: 100px 0;
+      text-align: center;
+      background:
+        radial-gradient(circle at top, #722034 0%, transparent 55%),
+        linear-gradient(135deg, #111218, #22232b);
+    }
+
+    .etiqueta {
+      display: inline-block;
+      color: #ff8c9d;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 7vw, 65px);
+      line-height: 1.12;
+      margin: 18px 0;
+    }
+
+    h1 span, h2 span { color: var(--rojo); }
+
+    .hero p {
+      color: var(--gris);
+      max-width: 650px;
+      margin: 0 auto 30px;
+      font-size: 18px;
+    }
+
+    .boton {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 10px;
+      background: var(--rojo);
+      color: white;
+      font-weight: bold;
+      transition: transform .2s, background .2s;
+    }
+
+    .boton:hover {
+      transform: translateY(-2px);
+      background: #bf1932;
+    }
+
+    .boton-secundario {
+      background: transparent;
+      border: 1px solid #777;
+    }
+
+    .boton-secundario:hover { background: #30323a; }
+
+    .acciones {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    section { padding: 75px 0; }
+
+    .titulo {
+      text-align: center;
+      font-size: clamp(27px, 4vw, 38px);
+      margin: 0 0 12px;
+    }
+
+    .subtitulo {
+      text-align: center;
+      color: var(--gris);
+      margin: 0 auto 36px;
+      max-width: 650px;
+    }
+
+    .cuadricula {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .tarjeta {
+      background: var(--fondo);
+      border: 1px solid #30313b;
+      border-radius: 16px;
+      padding: 28px 23px;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-5px);
+      border-color: var(--rojo);
+    }
+
+    .emoji { font-size: 38px; }
+
+    .tarjeta h3 { margin: 12px 0 8px; }
+
+    .tarjeta p {
+      color: var(--gris);
+      font-size: 15px;
+    }
+
+    .tarjeta a {
+      color: #ff7589;
+      font-weight: bold;
+    }
+
+    .seccion-alterna { background: #1c1e25; }
+
+    .ventas {
+      text-align: center;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .ventas p { color: var(--gris); }
+
+    .ubicacion {
+      text-align: center;
+      background: var(--fondo);
+      padding: 38px 25px;
+      border-radius: 18px;
+      border: 1px solid #383944;
+      max-width: 720px;
+      margin: auto;
+    }
+
+    .ubicacion p { color: var(--gris); }
+
+    footer {
+      text-align: center;
+      padding: 35px 15px;
+      background: #08090c;
+      border-top: 1px solid #333;
+      color: var(--gris);
+      font-size: 14px;
+    }
+
+    .whatsapp-flotante {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #25d366;
+      color: #071b0d;
+      padding: 13px 19px;
+      border-radius: 50px;
+      font-weight: bold;
+      box-shadow: 0 6px 25px #0008;
+      z-index: 20;
+    }
+
+    @media (max-width: 800px) {
+      .cuadricula { grid-template-columns: repeat(2, 1fr); }
+      .navegacion { justify-content: center; }
+      .hero { padding: 75px 0; }
+    }
+
+    @media (max-width: 550px) {
+      .cuadricula { grid-template-columns: 1fr; }
+      nav { justify-content: center; }
+      section { padding: 55px 0; }
+      .whatsapp-flotante {
+        right: 12px;
+        bottom: 12px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="contenedor navegacion">
+      <a class="logo" href="#inicio">MOVIL<span>TECH</span></a>
+      <nav aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#ventas">Ventas</a>
+        <a href="#ubicacion">Ubicación</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="contenedor">
+        <div class="etiqueta">Tecnología y reparación en Itagüí</div>
+        <h1>Tu tecnología<br><span>en buenas manos.</span></h1>
+        <p>
+          Reparamos celulares, computadores y portátiles.
+          También vendemos celulares y accesorios.
+          ¡En MOVILTECH te ayudamos!
+        </p>
+
+        <div class="acciones">
+          <a class="boton"
+             href="https://wa.me/573215231339?text=Hola%20MOVILTECH%2C%20quiero%20una%20cotizaci%C3%B3n"
+             target="_blank" rel="noopener noreferrer">
+            💬 Cotizar por WhatsApp
+          </a>
+          <a class="boton boton-secundario" href="#servicios">
+            Ver servicios
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios">
+      <div class="contenedor">
+        <h2 class="titulo">Nuestros <span>servicios</span></h2>
+        <p class="subtitulo">
+          Soluciones para tus equipos, con atención cercana y profesional.
+        </p>
+
+        <div class="cuadricula">
+
+          <article class="tarjeta">
+            <div class="emoji">📱</div>
+            <h3>Cambio de pantallas</h3>
+            <p>Revisión y reemplazo de pantallas y displays de celulares.</p>
+            <a href="https://wa.me/573215231339?text=Hola%2C%20quiero%20cotizar%20una%20pantalla"
+               target="_blank" rel="noopener noreferrer">Cotizar →</a>
+          </article>
+
+          <article class="tarjeta">
+            <div class="emoji">🔋</div>
+            <h3>Cambio de baterías</h3>
+            <p>Revisión de problemas de carga, autonomía y apagados inesperados.</p>
+            <a href="https://wa.me/573215231339?text=Hola%2C%20quiero%20cotizar%20una%20bater%C3%ADa"
+               target="_blank" rel="noopener noreferrer">Cotizar →</a>
+          </article>
+
+          <article class="tarjeta">
+            <div class="emoji">🔌</div>
+            <h3>Centro de carga</h3>
+            <p>Diagnóstico y reparación de problemas al conectar el cargador.</p>
+            <a href="https://wa.me/573215231339?text=Hola%2C%20mi%20celular%20no%20carga"
+               target="_blank" rel="noopener noreferrer">Cotizar →</a>
+          </article>
+
+          <article class="tarjeta">
+            <div class="emoji">💻</div>
+            <h3>Computadores y portátiles</h3>
+            <p>Mantenimiento, limpieza, diagnóstico y solución de fallas.</p>
+            <a href="https://wa.me/573215231339?text=Hola%2C%20necesito%20reparar%20un%20computador"
+               target="_blank" rel="noopener noreferrer">Cotizar →</a>
+          </article>
+
+          <article class="tarjeta">
+            <div class="emoji">🛠️</div>
+            <h3>Mantenimiento</h3>
+            <p>Revisión, limpieza y mantenimiento de equipos electrónicos.</p>
+            <a href="https://wa.me/573215231339?text=Hola%2C%20quiero%20un%20mantenimiento"
+               target="_blank" rel="noopener noreferrer">Cotizar →</a>
+          </article>
+
+          <article class="tarjeta">
+            <div class="emoji">🎧</div>
+            <h3>Accesorios</h3>
+            <p>Consulta por cargadores, cables, protectores y otros accesorios.</p>
+            <a href="https://wa.me/573215231339?text=Hola%2C%20quiero%20consultar%20por%20accesorios"
+               target="_blank" rel="noopener noreferrer">Consultar →</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion-alterna" id="ventas">
+      <div class="contenedor ventas">
+        <h2 class="titulo">Venta de <span>celulares</span></h2>
+        <div class="emoji">📲</div>
+        <p>
+          Pregunta por nuestros celulares nuevos y usados.
+          Te ayudamos a conocer las opciones disponibles,
+          sus características y precios.
+        </p>
+        <a class="boton"
+           href="https://wa.me/573215231339?text=Hola%20MOVILTECH%2C%20quiero%20ver%20celulares%20disponibles"
+           target="_blank" rel="noopener noreferrer">
+          Consultar celulares disponibles
+        </a>
+      </div>
+    </section>
+
+    <section id="ubicacion">
+      <div class="contenedor">
+        <h2 class="titulo">Visita <span>MOVILTECH</span></h2>
+        <p class="subtitulo">Estamos en Itagüí, Antioquia.</p>
+
+        <div class="ubicacion">
+          <div class="emoji">📍</div>
+          <h3>Barrio Rosario, Itagüí</h3>
+          <p>Calle 47C #59C-49<br>Itagüí, Antioquia, Colombia</p>
+          <p>📲 WhatsApp: 321 523 1339</p>
+
+          <div class="acciones">
+            <a class="boton"
+               href="https://www.google.com/maps/search/?api=1&query=Calle+47C+59C-49+Itagui+Antioquia+Colombia"
+               target="_blank" rel="noopener noreferrer">
+              🗺️ Ver en Google Maps
+            </a>
+            <a class="boton boton-secundario"
+               href="https://wa.me/573215231339"
+               target="_blank" rel="noopener noreferrer">
+              Escribirnos
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="logo">MOVIL<span>TECH</span></div>
+    <p>Celulares • Computadores • Reparaciones • Accesorios</p>
+    <p>📍 Barrio Rosario, Itagüí, Antioquia</p>
+    <p>© <span id="anio"></span> MOVILTECH. Todos los derechos reservados.</p>
+  </footer>
+
+  <a class="whatsapp-flotante"
+     href="https://wa.me/573215231339?text=Hola%20MOVILTECH"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Contactar MOVILTECH por WhatsApp">
+    💬 WhatsApp
+  </a>
+
+  <script>
+    document.getElementById("anio").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
